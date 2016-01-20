@@ -1,0 +1,25 @@
+# HoleFilling
+
+README and answers:
+==================
+
+Just run the HoleFillingRunner.
+
+4.  Complexity of the algorithm:
+    We assume we already have the boundary pixels and the hole pixels.
+    First, we can see that Weight(y_i, x) is in O(1) as it is just a few computational operations.
+    now to calculate I(x) we first need to sum w(y_i, x)I(y_i) that is done in O(m) as we have 'm'
+    boundary values.
+    Then we sum w(y_i, x) which is also in O(m), and the divide the two. And so we get that
+    calculating I(x) is in O(m)
+    As we need to calculate it for 'n' pixels, the total cost is in O(m*n).
+
+    When looking at the perimeter to area ration, a 'line' will have the largest ratio,
+    therefore m is bounded by 2n+6 (lets even round it to 3n...). Now if we want to express the complexity
+    in terms of only n, we will get  O(m*n) < O(n*3n) in O(n^2).
+
+5.  An algorithm that approximates the result in O(n):
+    The idea of the approximation is to look at up to 8-nearest surrounding pixels.
+    This way, instead of iterating over n surrounding pixels for each hole pixel, we only iterate over 8.
+    Eventually we get O(8*n) = O(n).
+
